@@ -87,6 +87,7 @@ INSERT INTO `User_Info` (`Customer_ID`, 'Name', 'Email', 'P_number', 'Address') 
 (3844713, 'Henry', 'Henry@hotmail.com', 07319727246, '66 High Street BN2 1RP');
 
 INSERT INTO `Packages` (`Package_ID`, `Name`, 'Desc', 'Price', 'Destination') VALUES
+(00026, 'Safari Expedition in Serengeti', 'Embark on an exhilarating safari adventure through the vast plains of the Serengeti. Witness the awe-inspiring migration of wildebeests and zebras, encounter majestic lions, and marvel at the breathtaking landscapes of the African savannah. This expedition offers guided game drives, luxurious tented accommodations, and a chance to immerse yourself in the rich Maasai culture.', , 'Serengeti National Park, Tanzania'),
 
 INSERT INTO `Payment` (`Payment_ID`, `Booking_ID`, 'Date', 'Method', 'Amount') VALUES
 
