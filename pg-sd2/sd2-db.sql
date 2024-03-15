@@ -113,6 +113,9 @@ INSERT INTO `Reviews` (`Review_ID`, `Customer_ID`, 'Booking_ID', 'Rating', 'Revi
 (146, 1849902, 657831, 9,'"After my getaway in Santorini with the travel agency, Im still dreaming of its enchanting beauty! The whitewashed buildings, stunning sunsets, and crystal-clear waters created a magical atmosphere. It was the perfect romantic escape, and Im already planning my return trip!"' , '2021-07-13');
 
 INSERT INTO `Employees` (`Employee_ID`, `Name`, 'Role', 'Email', 'P_number') VALUES
+(19032, 'Charlie', 'Marketing Specialist', 'Charlie@gmail.com', 07582733982),
+(19032, 'Megan', 'Travel Consultant', 'Megan@outlook.com', )
+(19032, 'Amelie', 'Customer Support', 'Amelie@gmail.com')
 
 --
 -- Indexes for dumped tables
