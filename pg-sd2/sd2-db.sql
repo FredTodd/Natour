@@ -114,8 +114,8 @@ INSERT INTO `Reviews` (`Review_ID`, `Customer_ID`, 'Booking_ID', 'Rating', 'Revi
 
 INSERT INTO `Employees` (`Employee_ID`, `Name`, 'Role', 'Email', 'P_number') VALUES
 (19032, 'Charlie', 'Marketing Specialist', 'Charlie@gmail.com', 07582733982),
-(19032, 'Megan', 'Travel Consultant', 'Megan@outlook.com',  )
-(19032, 'Amelie', 'Customer Support', 'Amelie@gmail.com')
+(19032, 'Megan', 'Travel Consultant', 'Megan@outlook.com', 07974744823),
+(19032, 'Amelie', 'Customer Support', 'Amelie@gmail.com', 01582588402);
 
 --
 -- Indexes for dumped tables
