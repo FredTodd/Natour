@@ -40,7 +40,7 @@ CREATE TABLE `Packages` (
   `Name` varchar(512) NOT NULL,
   `Desc` varchar(512) NOT NULL,
   `Price` int NOT NULL,
-  `Destination` varchar(512) NOT NULL
+  `Destination` varchar(512) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `Payment` (
@@ -71,9 +71,9 @@ CREATE TABLE `Reviews` (
 
 CREATE TABLE `Employees` (
   `Employee_ID` int NOT NULL,
-  `Name` varchar(512) NOT NULL
-  `Role` varchar(512) NOT NULL
-  `Email` varchar(512) NOT NULL
+  `Name` varchar(512) NOT NULL,
+  `Role` varchar(512) NOT NULL,
+  `Email` varchar(512) NOT NULL,
   `P_number` int NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -102,7 +102,7 @@ INSERT INTO `Payment` (`Payment_ID`, `Booking_ID`, 'Date', 'Method', 'Amount') V
 INSERT INTO `Bookings` (`Booking_ID`, `Customer_ID`, 'Package_ID', 'Booking_date', 'Guest_no', 'Price') VALUES
 (599403, 8594033, 00027, '2024-03-14', 2, 4000),
 (889304, 5994825, 00026, '2024-02-07', 2, 3600),
-(504495, 3844713, 00028, '2024-02-01', 3, 4200);
+(504495, 3844713, 00028, '2024-02-01', 3, 4200),
 (783361, 4893321, 00025, '2022-07-21', 1, 1900),
 (294013, 4058721, 00023, '2022-10-16', 2, 3800),
 (657831, 1849902, 00028, '2021-06-27', 2, 2800);
@@ -131,17 +131,17 @@ ALTER TABLE `Packages`
   ADD PRIMARY KEY (`Package_ID`);
 
 ALTER TABLE `Payment`
-  ADD PRIMARY KEY (`Payment_ID`);
+  ADD PRIMARY KEY (`Payment_ID`),
   ADD FOREIGN KEY ('Booking_ID') REFERENCES 'Bookings'('Booking_ID');
 
 ALTER TABLE `Bookings`
-  ADD PRIMARY KEY (`Booking_ID`);
-  ADD FOREIGN KEY ('Customer_ID') REFERENCES 'User_Info'('Customer_ID');
+  ADD PRIMARY KEY (`Booking_ID`),
+  ADD FOREIGN KEY ('Customer_ID') REFERENCES 'User_Info'('Customer_ID'),
   ADD FOREIGN KEY ('Package_ID') REFERENCES 'Packages'('Package_ID');
 
 ALTER TABLE `Reviews`
-  ADD PRIMARY KEY (`Review_ID`);
-  ADD FOREIGN KEY ('Customer_ID') REFERENCES 'User_Info'('Customer_ID');
+  ADD PRIMARY KEY (`Review_ID`),
+  ADD FOREIGN KEY ('Customer_ID') REFERENCES 'User_Info'('Customer_ID'),
   ADD FOREIGN KEY ('Booking_ID') REFERENCES 'Bookings'('Booking_ID');
 
 ALTER TABLE `Employees`
