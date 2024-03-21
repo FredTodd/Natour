@@ -12,55 +12,92 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+CREATE TABLE User (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    phone_number VARCHAR(20),
+    address VARCHAR(255)
+);
+INSERT INTO User (name, email, phone_number, address)
+VALUES
+    ('John Doe', 'john@example.com', '123-456-7890', '123 Main St, City, Country'),
+    ('Jane Smith', 'jane@example.com', '987-654-3210', '456 Elm St, Town, Country'),
+    ('Alice Johnson', 'alice@example.com', '555-123-4567', '789 Oak St, Village, Country');
 
---
--- Database: `sd2-db`
---
+CREATE TABLE Package (
+    package_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    description TEXT,
+    price DECIMAL(10, 2),
+    destination VARCHAR(100)
+);
 
--- --------------------------------------------------------
+-- Insert some sample data
+INSERT INTO Package (name, description, price, destination)
+VALUES
+    ('Family Vacation', 'Enjoy a fun-filled family vacation with activities for all ages.', 1500.00, 'Beach Resort'),
+    ('Romantic Getaway', 'Escape with your loved one for a romantic retreat.', 1000.00, 'Mountain Lodge'),
+    ('Adventure Tour', 'Experience thrilling adventures in exotic locations.', 800.00, 'Jungle Expedition');
 
---
--- Table structure for table `test_table`
---
 
-CREATE TABLE `test_table` (
-  `id` int NOT NULL,
-  `name` varchar(512) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE Employee (
+    employee_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    phone_number VARCHAR(20),
+    role VARCHAR(50)
+);
 
---
--- Dumping data for table `test_table`
---
+INSERT INTO Employee (name, email, phone_number, role)
+VALUES
+    ('John Doe', 'john@example.com', '123-456-7890', 'Manager'),
+    ('Jane Smith', 'jane@example.com', '987-654-3210', 'Sales Representative'),
+    ('Alice Johnson', 'alice@example.com', '555-123-4567', 'Accountant');
 
-INSERT INTO `test_table` (`id`, `name`) VALUES
-(1, 'Lisa'),
-(2, 'Kimia');
+CREATE TABLE Booking (
+    booking_id INT PRIMARY KEY,
+    package VARCHAR(100), -- Assuming "package" represents the type of booking package
+    customer_id INT,
+    booking_date DATE,
+    guests INT,
+    price DECIMAL(10, 2) -- Assuming price is in decimal format with 10 digits in total and 2 digits after the decimal point
+);
 
---
--- Indexes for dumped tables
---
+INSERT INTO Booking (booking_id, package, customer_id, booking_date, guests, price)
+VALUES
+    (101, 'Family Vacation', 1, '2024-03-21', 4, 1500.00),
+    (102, 'Romantic Getaway', 2, '2024-03-20', 2, 1000.00),
+    (103, 'Adventure Tour', 3, '2024-03-19', 1, 800.00);
 
---
--- Indexes for table `test_table`
---
-ALTER TABLE `test_table`
-  ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT for dumped tables
---
+CREATE TABLE Payment (
+    payment_id INT PRIMARY KEY,
+    payment_type VARCHAR(50),
+    booking_id INT,
+    payment_date DATE,
+    payment_method VARCHAR(50),
+    amount DECIMAL(10, 2)
+);
 
---
--- AUTO_INCREMENT for table `test_table`
---
-ALTER TABLE `test_table`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-COMMIT;
+-- Insert some sample data
+INSERT INTO Payment (payment_id, payment_type, booking_id, payment_date, payment_method, amount)
+VALUES
+    (1, 'Credit Card', 101, '2024-03-21', 'Visa', 150.00),
+    (2, 'Cash', 102, '2024-03-20', 'Cash', 200.00),
+    (3, 'Debit Card', 103, '2024-03-19', 'Mastercard', 100.50);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+CREATE TABLE Reviews (
+    review_id INT PRIMARY KEY,
+    booking_id INT,
+    review TEXT,
+    rating FLOAT,
+    date DATE
+);
+
+-- Insert some sample data
+INSERT INTO Reviews (review_id, booking_id, review, rating, date)
+VALUES
+    (1, 101, 'Great experience, loved the service!', 4.5, '2024-03-21'),
+    (2, 102, 'Room was clean and comfortable.', 4.0, '2024-03-20'),
+    (3, 103, 'Staff was friendly and helpful.', 5.0, '2024-03-19');
