@@ -7,5 +7,6 @@ block content
         for item in data 
             tr  
                 td #{item.Review_ID}
-                td 
-                    a(href='/student-single/' + item.Review_ID) #{item.Review}
+                td #{item.Review} 
+                td #{item.Rating}
+                td #{item.Date}
