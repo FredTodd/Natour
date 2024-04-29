@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE User_Info (
   Customer_ID int(10) NOT NULL,
-  Name varchar(512),
-  Email varchar(512),
-  P_number bigint,
-  Address varchar(512),
-  password varchar(255)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  Name varchar(512) NOT NULL,
+  Email varchar(512) NOT NULL,
+  P_number bigint NOT NULL,
+  Address varchar(512) NOT NULL,
+  password varchar(255) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE Packages (
   Package_ID int(10) NOT NULL,
