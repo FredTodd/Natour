@@ -1,7 +1,11 @@
 extends layout
+
 block content
+    link(rel='stylesheet', href='static/css/login.css')
+
+
     h1 Password Set - Login here
-    form(action='/authenticate' method='POST')
+    form(action='/authenticate' method='POST' class='container')
         label(for='email') Enter your email: 
         input(name='email') 
         label(for='email') Enter your password: 

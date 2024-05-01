@@ -1,10 +1,10 @@
 // Import express.js
 const express = require("express");
+const app = express();
 
-// Create express app
-var app = express();
 
 // Add static files location
+app.use('/static', express.static('static'));
 app.use(express.static("static"));
 
 app.set('view engine', 'pug');
@@ -123,5 +123,5 @@ app.post('/authenticate', async function (req, res) {
 
 // Start server on port 3000
 app.listen(3000,function(){
-    console.log(`Server running at http://127.0.0.1:3000/`);
+    console.log(`Server running at http://localhost:3000`);
 });

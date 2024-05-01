@@ -1,0 +1,31 @@
+/* reviews.css */
+
+/* Title styling */
+.main-content h1 {
+    font-size: 4rem; /* Increase font size for the title */
+    color: green; /* Green color for the title */
+    font-family: "Lato", "Arial", sans-serif;
+}
+
+/* Table styling */
+table {
+    width: 100%; /* Set the width of the table to 100% of its container */
+    height: auto; /* Let the browser determine the height based on content */
+    background-color: #f2f2f2; /* Very light grey background */
+    color: green; /* Green text color */
+    border-collapse: collapse;
+}
+
+thead th {
+    background-color: green; /* Green header background */
+    color: white; /* White header text color */
+    font-size: 1.8rem; /* Font size for column titles */
+    font-family: "Lato", "Arial", sans-serif;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 12px; /* Increase padding for better spacing */
+    font-size: 1.5rem; /* Set font size to 16 pixels for table cells */
+    font-family: "Lato", "Arial", sans-serif;
+}
